@@ -1,6 +1,81 @@
-$primary-color: #444;
+@import "config";
+
+* {
+  box-sizing: border-box; // Everything will be within a box-model. If we have padding inside, it doesnt affext widht or height
+}
 
 body {
+  @include background;
   background: $primary-color;
   color: #fff;
+  height: 100%;
+  margin: 0; // Removes margin
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5; // Space between lines
+}
+
+// Headings
+h1,
+h2,
+h3 {
+  margin: 0; // No margin
+  font-weight: 400;
+
+  &.lg-heading {
+    // refers to h1,h2,h3 with class="lg-heading"
+    font-size: 6rem; // Multiplier to html default font-size 16px, if not declared otherwise (6x16px) = 96px
+  }
+
+  &.sm-heading {
+    margin-bottom: 2rem;
+    padding: 0.2rem 1rem; // 0.2rem top & bottom, 1rem left & right
+    background: rgba(
+      lighten($color: $primary-color, $amount: 2),
+      0.5
+    ); // Use rgba(function, opacity) to show background image
+  }
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+header {
+  position: fixed; // Header stays always on top, even when scrolling
+  z-index: 2; // Always on front, the bigger the number the closer to you it is.
+  width: 100%; // Stretches the header across the screen
+}
+
+.text-secondary {
+  color: $secondary-color;
+}
+
+main {
+  padding: 4rem; // Padding all around
+  height: 100%;
+
+  .icons {
+    // We can nest. All icons inside a main tag
+    margin-top: 1rem; // Push down a bit
+
+    a {
+      // Because each icon is wrapped in a tag
+      padding: 0.4rem;
+      &:hover {
+        color: $secondary-color;
+        @include easeOut; // Include to use a mixin
+      }
+    }
+  }
+
+  &#home {
+    // Any main that has id="home"
+    overflow: hidden; // Hides scrollbars on homepage
+
+    h1 {
+      margin-top: 20vh; // Viewport height, think of it has 100 slices across, it takes 20 of them. vw - slices going up and down
+      //margin-left: 20vw; // vw - slices going up and down
+    }
+  }
 }
