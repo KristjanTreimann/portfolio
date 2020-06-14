@@ -1,5 +1,5 @@
-@import "config";
-@import "menu";
+@import 'config';
+@import 'menu';
 
 * {
   box-sizing: border-box; // Everything will be within a box-model. If we have padding inside, it doesnt affext widht or height
@@ -11,7 +11,7 @@ body {
   color: #fff;
   height: 100%;
   margin: 0; // Removes margin
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5; // Space between lines
 }
 

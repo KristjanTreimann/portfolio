@@ -3,8 +3,9 @@
 $primary-color: rgb(7, 24, 71);
 $secondary-color: #8183e6;
 $show-home-image: true;
-$home-image: url("../img/background.jpg");
+$home-image: url('../img/background.jpg');
 $background-opacity: 0.9;
+$portrait: url('../img/portrait.jpg');
 
 @mixin easeOut {
   // basically a function
@@ -23,7 +24,7 @@ $background-opacity: 0.9;
       // add overlay
       &:after {
         // pseudo element, its not in html, but gets treated like it.
-        content: "";
+        content: '';
         position: absolute; // To cover whole page
         top: 0; // Starts from top left corner
         left: 0;
