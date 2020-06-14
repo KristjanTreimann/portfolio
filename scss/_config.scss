@@ -6,6 +6,7 @@ $show-home-image: true;
 $home-image: url('../img/background.jpg');
 $background-opacity: 0.9;
 $portrait: url('../img/portrait.jpg');
+$portrait-small: url('../img/portrait_small.jpg');
 
 @mixin easeOut {
   // basically a function
@@ -34,5 +35,33 @@ $portrait: url('../img/portrait.jpg');
         background: rgba($primary-color, $background-opacity);
       }
     }
+  }
+}
+
+// Responsiveness
+// Media Query Mixins
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    // Any CSS inside here only apply when screen is 500px and less
+    @content; // Mixins can be used elsewhere usind mixin name
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 769px) and (max-width: 1170px) {
+    // Any CSS inside here only apply when screen width is in range 769-1170px
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1171px) {
+    @content;
   }
 }
