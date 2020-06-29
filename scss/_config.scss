@@ -1,7 +1,7 @@
 // It is better to keep mixins and variables separately. For example in _config.scss. _filename.scss shows its a partial file.
 
-$primary-color: rgb(7, 24, 71);
-$secondary-color: #8183e6;
+$primary-color: #444;
+$secondary-color: #d8c44f;
 $show-home-image: true;
 $home-image: url('../img/background.jpg');
 $background-opacity: 0.9;
@@ -35,6 +35,15 @@ $portrait-small: url('../img/portrait_small.jpg');
         background: rgba($primary-color, $background-opacity);
       }
     }
+  }
+}
+
+// Set Text Color
+@function set-text-color($color) {
+  @if (lightness($color) > 40) {
+    @return #000;
+  } @else {
+    @return #fff;
   }
 }
 

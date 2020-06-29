@@ -10,7 +10,7 @@
   .btn-line {
     width: 28px;
     height: 3px;
-    background: #fff;
+    background: set-text-color($primary-color);
     margin: 0 0 5px 0;
     @include easeOut;
   }
@@ -59,7 +59,7 @@
     justify-content: center; // Aligns both vertically and horisontally
     float: left;
     width: 50%;
-    height: 100vw;
+    height: 100vh;
     overflow: hidden; // No scrollbars
   }
 
@@ -128,7 +128,7 @@
     text-transform: uppercase;
     padding: 1rem 0; // Up & Down 1rem, left & right 0
     font-weight: 300;
-    color: #fff;
+    color: set-text-color($primary-color);
     text-decoration: none;
     @include easeOut;
 
@@ -140,7 +140,7 @@
 
 // Delay each nav item slide by 0.1s
 // Using SASS for loop
-@for $x from 1 to 4 {
+@for $x from 1 to 5 {
   // 4 links total
   .nav-item:nth-child(#{$x}) {
     transition-delay: $x * 0.1s;
