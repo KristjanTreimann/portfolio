@@ -130,6 +130,50 @@ main {
   }
 }
 
+// Work/Projects
+.projects {
+  display: grid;
+  grid-gap: 0.7rem;
+  grid-template-columns: repeat(3, 1fr);
+
+  // Shrink down images
+  img {
+    width: 100%; // 100%  of its container
+    border: 3px solid #fff;
+    opacity: 0.5;
+
+    &:hover {
+      opacity: 1;
+      border-color: $secondary-color;
+      @include easeOut;
+    }
+  }
+}
+
+// Button Styles
+// create basic styles for all the buttons and then extend this class
+.btn {
+  display: block;
+  padding: 0.5rem 1rem; // top/bottom & right/left
+  border: 0; // no border
+  margin-bottom: 0.3rem;
+  &:hover {
+    background: $secondary-color;
+    color: set-text-color($secondary-color);
+  }
+}
+
+.btn-dark {
+  @extend .btn;
+  background: darken($color: $primary-color, $amount: 50%);
+}
+
+.btn-light {
+  @extend .btn;
+  background: lighten($color: $primary-color, $amount: 50%);
+  color: #333;
+}
+
 #main-footer {
   text-align: center;
   padding: 1rem;
