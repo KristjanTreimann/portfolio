@@ -44,7 +44,7 @@
   position: fixed;
   top: 0;
   width: 100vw;
-  opacity: 0.9; // See through
+  opacity: 0.97; // See through
   visibility: hidden; // By default is hidden
   // Add show class to menu, when button is clicked, menu will be visible
   &.show {
