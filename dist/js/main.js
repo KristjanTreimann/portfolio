@@ -12,7 +12,6 @@ let showMenu = false; // Use let to reassing value
 menuBtn.addEventListener('click', toggleMenu); // Once clicked function toggleMenu fires off
 
 function toggleMenu() {
-  console.log('test');
   if (!showMenu) {
     // first check the state of shoe menu. If the menu(overlay with nav items) is not shown
     // When we click hamburger we want overlay menu to be shown, so we add 'show' classes
