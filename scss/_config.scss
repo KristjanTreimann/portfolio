@@ -1,5 +1,3 @@
-// It is better to keep mixins and variables separately. For example in _config.scss. _filename.scss shows its a partial file.
-
 $primary-color: #18181e;
 $secondary-color: #ffdb57;
 $show-home-image: true;
@@ -9,36 +7,29 @@ $portrait: url('../img/portrait.jpg');
 $portrait-small: url('../img/portrait_small.jpg');
 
 @mixin easeOut {
-  // basically a function
   transition: all 0.5s ease-out;
 }
 
 @mixin background {
   @if $show-home-image {
-    // Check if image is enabled
     &#bg-img {
-      // It works because mixin is included to the body. It looks for the body and corresponding id "bg-img"
       background: $home-image;
       background-attachment: fixed;
-      background-size: cover; // Covers entire space
-
-      // add overlay
+      background-size: cover;
       &:after {
-        // pseudo element, its not in html, but gets treated like it.
         content: '';
-        position: absolute; // To cover whole page
-        top: 0; // Starts from top left corner
+        position: absolute;
+        top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1; // -negative to make sure text will be visible
+        z-index: -1;
         background: rgba($primary-color, $background-opacity);
       }
     }
   }
 }
 
-// Set Text Color
 @function set-text-color($color) {
   @if (lightness($color) > 40) {
     @return #000;
@@ -47,12 +38,9 @@ $portrait-small: url('../img/portrait_small.jpg');
   }
 }
 
-// Responsiveness
-// Media Query Mixins
 @mixin mediaSm {
   @media screen and (max-width: 500px) {
-    // Any CSS inside here only apply when screen is 500px and less
-    @content; // Mixins can be used elsewhere usind mixin name
+    @content;
   }
 }
 
@@ -64,7 +52,6 @@ $portrait-small: url('../img/portrait_small.jpg');
 
 @mixin mediaLg {
   @media screen and (min-width: 769px) and (max-width: 1170px) {
-    // Any CSS inside here only apply when screen width is in range 769-1170px
     @content;
   }
 }

@@ -2,40 +2,33 @@
 @import 'menu';
 
 * {
-  box-sizing: border-box; // Everything will be within a box-model. If we have padding inside, it doesnt affext widht or height
+  box-sizing: border-box;
 }
 
 body {
   @include background;
   background: $primary-color;
-  color: set-text-color(
-    $primary-color
-  ); // text color depends on background color
+  color: set-text-color($primary-color);
   height: 100%;
-  margin: 0; // Removes margin
+  margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  line-height: 1.5; // Space between lines
+  line-height: 1.5;
 }
 
-// Headings
 h1,
 h2,
 h3 {
-  margin: 0; // No margin
+  margin: 0;
   font-weight: 400;
 
   &.lg-heading {
-    // refers to h1,h2,h3 with class="lg-heading"
-    font-size: 6rem; // Multiplier to html default font-size 16px, if not declared otherwise (6x16px) = 96px
+    font-size: 6rem;
   }
 
   &.sm-heading {
     margin-bottom: 2rem;
-    padding: 0.2rem 1rem; // 0.2rem top & bottom, 1rem left & right
-    background: rgba(
-      lighten($color: $primary-color, $amount: 2),
-      0.5
-    ); // Use rgba(function, opacity) to show background image
+    padding: 0.2rem 1rem;
+    background: rgba(lighten($color: $primary-color, $amount: 2), 0.5);
   }
 }
 
@@ -45,9 +38,9 @@ a {
 }
 
 header {
-  position: fixed; // Header stays always on top, even when scrolling
-  z-index: 2; // Always on front, the bigger the number the closer to you it is.
-  width: 100%; // Stretches the header across the screen
+  position: fixed;
+  z-index: 2;
+  width: 100%;
 }
 
 .text-secondary {
@@ -55,45 +48,37 @@ header {
 }
 
 main {
-  padding: 4rem; // Padding all around
-  // height: 100%;
-  min-height: calc(
-    100vh - 60px
-  ); // - footer height to make footer stick to bottom
+  padding: 4rem;
+
+  min-height: calc(100vh - 60px);
 
   .icons {
-    // We can nest. All icons inside a main tag
-    margin-top: 1rem; // Push down a bit
+    margin-top: 1rem;
 
     a {
-      // Because each icon is wrapped in a tag
       padding: 0.4rem;
       &:hover {
         color: $secondary-color;
-        @include easeOut; // Include to use a mixin
+        @include easeOut;
       }
     }
   }
 
   &#home {
-    // Any main that has id="home"
-    overflow: hidden; // Hides scrollbars on homepage
+    overflow: hidden;
 
     h1 {
-      margin-top: 20vh; // Viewport height, think of it has 100 slices across, it takes 20 of them. vw - slices going up and down
-      //margin-left: 20vw; // vw - slices going up and down
+      margin-top: 20vh;
     }
   }
 }
 
-// About page CSS
 .about-info {
-  display: grid; // maps out and uses it as grid
-  grid-gap: 30px; // adds spacing
-  grid-template-areas: // Visual representation of layout. Uses corresponding classes from about.html
+  display: grid;
+  grid-gap: 30px;
+  grid-template-areas:
     'bioimage bio bio'
     'job1 job2 job3';
-  // fr = fraction , repeat(number of columns/rows, the column width we want);
   grid-template-columns: repeat(3, 1fr);
 
   .bio-image {
@@ -130,15 +115,13 @@ main {
   }
 }
 
-// Work/Projects
 .projects {
   display: grid;
   grid-gap: 0.7rem;
   grid-template-columns: repeat(3, 1fr);
 
-  // Shrink down images
   img {
-    width: 100%; // 100%  of its container
+    width: 100%;
     border: 3px solid #fff;
     opacity: 0.5;
 
@@ -150,10 +133,9 @@ main {
   }
 }
 
-// Contact page
 .boxes {
   display: flex;
-  flex-wrap: wrap; // When it gets too big it goes to the next line
+  flex-wrap: wrap;
   justify-content: space-evenly;
   align-items: center;
   margin-top: 1rem;
@@ -176,12 +158,10 @@ main {
   }
 }
 
-// Button Styles
-// create basic styles for all the buttons and then extend this class
 .btn {
   display: block;
-  padding: 0.5rem 1rem; // top/bottom & right/left
-  border: 0; // no border
+  padding: 0.5rem 1rem;
+  border: 0;
   margin-bottom: 0.3rem;
   &:hover {
     background: $secondary-color;
@@ -208,5 +188,4 @@ main {
   height: 60px;
 }
 
-// Add mobile to bottom to run after initial CSS
 @import 'mobile';

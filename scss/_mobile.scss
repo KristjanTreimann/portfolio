@@ -26,7 +26,7 @@
 
   ul.menu-nav,
   div.menu-branding {
-    float: none; // Remove side by side
+    float: none;
     width: 100%;
     min-height: 0;
 
@@ -36,14 +36,14 @@
   }
 
   .menu-nav {
-    height: 75vh; // 3/4 links area and 1/4 remains to portrait
-    transform: translate3d(-100%, 0, 0); // Nav menu comes in from the left
+    height: 75vh;
+    transform: translate3d(-100%, 0, 0);
     font-size: 24px;
   }
 
   .menu-branding {
     height: 25vh;
-    transform: translate3d(100%, 0, 0); // Nav menu comes in from the right
+    transform: translate3d(100%, 0, 0);
 
     .portrait {
       background: $portrait-small;
@@ -52,7 +52,6 @@
       height: 150px;
     }
   }
-  // Change medium view layout. Stack on top of each other
   .about-info {
     grid-template-areas:
       'bioimage'

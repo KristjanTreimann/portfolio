@@ -1,6 +1,5 @@
-// Menu button aka hamburger button
 .menu-btn {
-  position: absolute; // to determine exact position
+  position: absolute;
   z-index: 3;
   right: 35px;
   top: 35px;
@@ -15,23 +14,18 @@
     @include easeOut;
   }
 
-  // Rotate Into X With Menu Lines
   &.close {
     transform: rotate(180deg);
 
     .btn-line {
-      // Line 1 - Rotate
       &:nth-child(1) {
         transform: rotate(45deg) translate(5px, 5px);
-        // Translate repositions it
       }
 
-      // Line 2 - Hide
       &:nth-child(2) {
         opacity: 0;
       }
 
-      // Line 3 - Rotate
       &:nth-child(3) {
         transform: rotate(-45deg) translate(7px, -6px);
       }
@@ -39,60 +33,46 @@
   }
 }
 
-// Menu Overlay
 .menu {
   position: fixed;
   top: 0;
   width: 100vw;
-  opacity: 0.97; // See through
-  visibility: hidden; // By default is hidden
-  // Add show class to menu, when button is clicked, menu will be visible
+  opacity: 0.97;
+  visibility: hidden;
   &.show {
     visibility: visible;
   }
   &-branding,
   &-nav {
-    // Same as &.menu-branding, &.menu-nav
-    display: flex; // Making it to a column
-    flex-flow: column wrap; // Makes as column
+    display: flex;
+    flex-flow: column wrap;
     align-items: center;
-    justify-content: center; // Aligns both vertically and horisontally
+    justify-content: center;
     float: left;
     width: 50%;
     height: 100vh;
-    overflow: hidden; // No scrollbars
+    overflow: hidden;
   }
 
   &-nav {
     margin: 0;
     padding: 0;
     background: darken($color: $primary-color, $amount: 5);
-    list-style: none; // Remove bulletpoints
-    transform: translate3d(
-      0,
-      -100%,
-      0
-    ); // Places overlay menu outside view, starting from top
+    list-style: none;
+    transform: translate3d(0, -100%, 0);
     @include easeOut;
 
     &.show {
-      // Slide in from top;
       transform: translate3d(0, 0, 0);
     }
   }
 
-  // Branding side
   &-branding {
     background: $primary-color;
-    transform: translate3d(
-      0,
-      100%,
-      0
-    ); // Places overlay menu outside view, starting from bottom
+    transform: translate3d(0, 100%, 0);
     @include easeOut;
 
     &.show {
-      // Slide in from bottom
       transform: translate3d(0, 0, 0);
     }
 
@@ -101,7 +81,7 @@
       height: 250px;
       background: $portrait;
       background-size: cover;
-      border-radius: 50%; // Circle portrait
+      border-radius: 50%;
       border: solid 3px $secondary-color;
     }
   }
@@ -111,13 +91,11 @@
     @include easeOut;
 
     &.show {
-      // Slide in from right
       transform: translate3d(0, 0, 0);
     }
 
     &.current > a {
-      // a tag inside current
-      color: $secondary-color; // Active page link is colored
+      color: $secondary-color;
     }
   }
 
@@ -126,7 +104,7 @@
     position: relative;
     font-size: 30px;
     text-transform: uppercase;
-    padding: 1rem 0; // Up & Down 1rem, left & right 0
+    padding: 1rem 0;
     font-weight: 300;
     color: set-text-color($primary-color);
     text-decoration: none;
@@ -138,10 +116,7 @@
   }
 }
 
-// Delay each nav item slide by 0.1s
-// Using SASS for loop
 @for $x from 1 to 5 {
-  // 4 links total
   .nav-item:nth-child(#{$x}) {
     transition-delay: $x * 0.1s;
   }
